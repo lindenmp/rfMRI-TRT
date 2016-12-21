@@ -40,10 +40,13 @@ GordonDistVec = LP_FlatMat(GordonDist)';
 % ------------------------------------------------------------------------------
 % Noise corrections
 % ------------------------------------------------------------------------------
-noiseOptions = {'6P','6P+2P','6P+2P+GSR','24P+8P','24P+8P+GSR','24P+aCC','24P+aCCd','24P+8P+GSR+SpikeReg','sICA-AROMA+2P','sICA-AROMA+GSR'};
-% noiseOptions = {'6P','6P+2P'};
+% noiseOptions = {'6P','6P+2P','6P+2P+GSR','24P+8P','24P+8P+GSR','24P+aCC','24P+aCCd','24P+8P+GSR+SpikeReg','sICA-AROMA+2P','sICA-AROMA+GSR'};
+noiseOptions = {'6P','6P+2P','6P+2P+GSR','24P+8P','24P+8P+GSR','24P+aCC','24P+aCCd','24P+8P+GSR+SpikeReg','ICA-AROMA+2P','ICA-AROMA+GSR'};
+% noiseOptions = {'sICA-AROMA+2P','sICA-AROMA+GSR','ICA-AROMA+2P','ICA-AROMA+GSR'};
 numPrePro = length(noiseOptions);
 WhichParc = 1;
+
+cfgFile = 'cfg_noSmooth.mat';
 
 mean_wrt_ICC = [];
 std_wrt_ICC = [];
@@ -71,7 +74,7 @@ for i = 1:numPrePro
 		    tsdir = [datadir,DarisIDs{j},preprostr,removeNoise,'/'];
 		    
 		    clear temp
-		    temp = load([tsdir,'cfg.mat']);
+		    temp = load([tsdir,cfgFile]);
 		    
 		    cfg_bl = [cfg_bl temp.cfg];
 		end
@@ -105,7 +108,7 @@ for i = 1:numPrePro
 		    tsdir = [datadir,DarisIDs{j},preprostr,removeNoise,'/'];
 		    
 		    clear temp
-		    temp = load([tsdir,'cfg.mat']);
+		    temp = load([tsdir,cfgFile]);
 		    
 		    cfg_wrt = [cfg_wrt temp.cfg];
 		end
@@ -139,7 +142,7 @@ for i = 1:numPrePro
 		    tsdir = [datadir,DarisIDs{j},preprostr,removeNoise,'/'];
 		    
 		    clear temp
-		    temp = load([tsdir,'cfg.mat']);
+		    temp = load([tsdir,cfgFile]);
 		    
 		    cfg_brt = [cfg_brt temp.cfg];
 		end
@@ -187,7 +190,7 @@ for i = 1:numPrePro
 	% ------------------------------------------------------------------------------
 	% Plot
 	% ------------------------------------------------------------------------------
-		subplot(2,numPrePro/2,i)
+		subplot(2,round(numPrePro/2),i)
 		% histogram(wrt_ICC); hold on; histogram(brt_ICC)
 
 		numThresholds = 10;
