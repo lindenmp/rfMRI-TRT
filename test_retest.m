@@ -507,7 +507,7 @@ end
 	extraParams.xTickLabels = noiseOptionsNames(tDOF_idx);
 	extraParams.XTickLabelRot = 90;
 	extraParams.xLabel = 'Pipeline';
-	extraParams.yLabel = 'Within ICC';
+	extraParams.yLabel = 'Within Session ICC';
 	extraParams.xLimits = [0 numPrePro+1];
 	extraParams.yLimits = [0 1];
 	extraParams.Title = ['NYU dataset. ',WhichParc,' parcellation'];
@@ -533,7 +533,7 @@ end
 	extraParams.xTickLabels = noiseOptionsNames(tDOF_idx);
 	extraParams.XTickLabelRot = 90;
 	extraParams.xLabel = 'Pipeline';
-	extraParams.yLabel = 'Between ICC';
+	extraParams.yLabel = 'Between Session ICC';
 	extraParams.xLimits = [0 numPrePro+1];
 	extraParams.yLimits = [0 1];
 	extraParams.Title = ['NYU dataset. ',WhichParc,' parcellation'];
