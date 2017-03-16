@@ -1,3 +1,8 @@
+% ------------------------------------------------------------------------------
+% This script performs test-retest analysis on the NYU_2 dataset
+% 
+% Linden Parkes, Brain & Mental Health Laboratory, 2016
+% ------------------------------------------------------------------------------
 clear all; close all; clc
 
 WhichParc = 'Gordon' % 'Gordon' 'Power'
@@ -14,12 +19,6 @@ WhichStat = 't'
 % NOTE: only run one or the other. Both CANNOT be set to true
 runSR = false
 runScrub = false
-
-% ------------------------------------------------------------------------------
-% This script performs test-retest analysis on the NYU_2 dataset
-% 
-% Linden Parkes, Brain & Mental Health Laboratory, 2016
-% ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------
 % Project
@@ -620,7 +619,7 @@ end
 % ------------------------------------------------------------------------------
 	varNames = {'ICC_Within_m_sd','ICC_Between_m_sd'};
 	T = table([round([allStats(:).ICC_wrt_mean],2)',round([allStats(:).ICC_wrt_std],2)'],[round([allStats(:).ICC_brt_mean],2)',round([allStats(:).ICC_brt_std]',2)],'RowNames',noiseOptions','VariableNames',varNames')
-
+end
 
 
 
